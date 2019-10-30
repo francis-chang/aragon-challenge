@@ -19,10 +19,32 @@ function App() {
                     const latest = await web3.eth.getBlockNumber()
                     // Request iteratively for the latest 10 blocks
                     // issues with BatchRequest - callback returns null (see bottom of file)
-                    for (let i = 0; i < 10; i++) {
-                        const block = await web3.eth.getBlock(latest - i)
-                        setBlocks(previousState => [...previousState, block])
+                    const block = await web3.eth.getBlock(latest)
+                    const batch = new web3.eth.BatchRequest()
+                    for (const tx in block.transactions) {
+                        batch.add(
+                            web3.eth.getTransaction.request(
+                                block.transactions[tx],
+                                (_, a) => {
+                                    if (a.value > 0) {
+                                        console.log(a)
+                                    }
+                                }
+                            )
+                        )
+                        // batch.add(
+                        //     web3.eth.getTransactionReceipt.request(
+                        //         block.transactions[tx],
+                        //         d => console.log(d)
+                        //     )
+                        // )
                     }
+                    batch.execute()
+                    // for (let i = 0; i < 10; i++) {
+                    //     const block = await web3.eth.getBlock(latest - i)
+                    //     console.log(block.transactions)
+                    //     setBlocks(previousState => [...previousState, block])
+                    // }
                 } catch (error) {
                     // User unable to access account
                     // Cannot find a way to reach this path
