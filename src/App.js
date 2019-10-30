@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './fonts.css'
 import Web3 from 'web3'
 import BrowserError from './BrowserError'
 import { Container, Global } from './Styles'
@@ -20,10 +21,7 @@ function App() {
                     // issues with BatchRequest - callback returns null (see bottom of file)
                     for (let i = 0; i < 10; i++) {
                         const block = await web3.eth.getBlock(latest - i)
-                        setBlocks(previousState => [
-                            ...previousState,
-                            block.number,
-                        ])
+                        setBlocks(previousState => [...previousState, block])
                     }
                 } catch (error) {
                     // User unable to access account
@@ -36,14 +34,25 @@ function App() {
         })()
     }, [])
 
-    useEffect(() => {
-        console.log(blocks)
-    })
+    // useEffect(() => {
+    //     console.log(blocks)
+    // })
     return (
         <div>
             <Global />
             {!metaMaskAccess && <div>Please login correctly</div>}
             {browserError && <BrowserError />}
+            {!browserError && blocks.length < 10 && <div>Loading...</div>}
+            {!browserError && blocks.length === 10 && (
+                <Container>
+                    {blocks.map(block => (
+                        <div key={block.number}>
+                            {block.gasPrice} | {block.gasLimit} |{' '}
+                            {block.gasUsed}
+                        </div>
+                    ))}
+                </Container>
+            )}
         </div>
     )
 }
