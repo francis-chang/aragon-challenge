@@ -3,6 +3,7 @@ import { useSpring, animated } from 'react-spring';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import BlockInformation from './BlockInformation';
+import TxInformation from './TxInformation';
 
 import {
     BlockTitle,
@@ -24,13 +25,13 @@ const Block = ({ block }) => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setTime(time + 3);
+            setTime(prevTime => prevTime + 3);
         }, 3000);
 
         return () => {
             clearInterval(interval);
         };
-    });
+    }, []);
 
     const blockInfo = useSpring({
         position: 'relative',
@@ -42,7 +43,6 @@ const Block = ({ block }) => {
         backgroundColor: '#313e50',
         height: blockToggle ? '300px' : '30px',
         display: 'flex',
-        alignItems: 'center',
         overflow: 'hidden',
         zIndex: 1,
     });
@@ -53,9 +53,8 @@ const Block = ({ block }) => {
         fontSize: '1.5rem',
         margin: '0 auto',
         backgroundColor: '#313638',
-        height: txToggle ? '300px' : '30px',
+        height: txToggle ? '420px' : '30px',
         display: 'flex',
-        alignItems: 'center',
     });
 
     return (
@@ -87,6 +86,7 @@ const Block = ({ block }) => {
                 </ToggleButton>
             </animated.div>
             <animated.div style={txInfo}>
+                <TxInformation txs={block.sentTxs}></TxInformation>
                 <ToggleButton
                     color="#313638"
                     onClick={() => setTxToggle(!txToggle)}

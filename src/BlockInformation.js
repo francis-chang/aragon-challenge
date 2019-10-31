@@ -1,18 +1,21 @@
 import React from 'react';
-import { BlockInformationContainer } from './Styles';
+import { BlockInformationContainer, BlockInformationLine } from './Styles';
 
 const BlockInformation = ({ block }) => {
     return (
         <BlockInformationContainer>
-            Hash: {block.hash} <br />
-            Miner: {block.miner} <br />
-            difficulty: {block.difficulty}
-            <br />
-            size: {block.size}
-            <br />
-            gasLimit: {block.gasLimit}
-            <br />
-            gasUsed : {block.gasUsed} <br />
+            <BlockInformationLine>Hash: {block.hash}</BlockInformationLine>
+            <BlockInformationLine>Miner: {block.miner}</BlockInformationLine>
+            <BlockInformationLine>
+                difficulty: {block.difficulty}
+            </BlockInformationLine>
+            <BlockInformationLine>size: {block.size}</BlockInformationLine>
+            <BlockInformationLine>
+                gasLimit: {block.gasLimit}
+            </BlockInformationLine>
+            <BlockInformationLine>
+                gasUsed : {block.gasUsed}
+            </BlockInformationLine>
         </BlockInformationContainer>
     );
 };

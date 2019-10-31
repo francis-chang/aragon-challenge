@@ -48,7 +48,7 @@ function App() {
                 window.web3.eth.getTransaction.request(
                     block.transactions[tx],
                     (_, transaction) => {
-                        if (transaction.value && transaction.value > 0) {
+                        if (transaction && transaction.value > 0) {
                             block.sentTxs.push(transaction);
                         }
                     }

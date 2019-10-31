@@ -97,7 +97,33 @@ const Time = styled.div`
 `;
 
 const BlockInformationContainer = styled.div`
+    padding-top: 1.5rem;
     color: #e8e9eb;
+`;
+
+const BlockInformationLine = styled.div`
+    padding: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+`;
+
+const TxInformationContainer = styled.div`
+    max-height: 350px;
+    overflow-y: scroll;
+    color: #e8e9eb;
+    width: 100%;
+    margin-top: 1rem;
+`;
+
+const TxInformationLine = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+const TxInformationToFrom = styled.div`
+    display: flex;
+    flex-direction: column;
 `;
 
 export {
@@ -112,4 +138,8 @@ export {
     ToggleButtonSVG,
     Time,
     BlockInformationContainer,
+    BlockInformationLine,
+    TxInformationContainer,
+    TxInformationLine,
+    TxInformationToFrom,
 };
