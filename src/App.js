@@ -9,6 +9,7 @@ function App() {
     const [browserError, setBrowserError] = useState(false);
     const [metaMaskAccess, setMetaMaskAccess] = useState(true);
     const [blocks, setBlocks] = useState([]);
+
     useEffect(() => {
         (async () => {
             const { ethereum } = window;
