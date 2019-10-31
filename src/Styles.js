@@ -13,39 +13,24 @@ const Container = styled.div`
     margin: 0 auto;
 `;
 
-const AllContainer = styled.div`
-    min-height: 200px;
-`;
-
 const BlockContainer = styled.div`
-    position: relative;
-    min-height: 200px;
+    margin-bottom: 1rem;
 `;
 
 const BlockTitle = styled.div`
+    position: relative;
     width: 70%;
     padding: 1rem 2rem;
     font-size: 1.5rem;
-
+    margin: 0 auto;
     border-radius: 10px;
     background-color: #e8e9eb;
     z-index: 3;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
+    height: 80px;
 `;
 
 const BlockInformation = styled(BlockContainer)`
     background-color: #313e50;
 `;
 
-export {
-    BlockContainer,
-    BlockTitle,
-    BlockInformation,
-    Container,
-    Global,
-    AllContainer,
-};
+export { BlockContainer, BlockTitle, BlockInformation, Container, Global };
