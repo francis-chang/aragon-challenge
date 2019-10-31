@@ -65,7 +65,17 @@ function App() {
             <Global />
             {!metaMaskAccess && <div>Please login correctly</div>}
             {browserError && <BrowserError />}
-            {!browserError && blocks.length < 10 && <div>Loading...</div>}
+            {!browserError && blocks.length < 10 && (
+                <div
+                    style={{
+                        width: '100%',
+                        fontSize: '2rem',
+                        textAlign: 'center',
+                    }}
+                >
+                    Loading...
+                </div>
+            )}
             {!browserError && blocks.length === 10 && (
                 <Container>
                     {blocks.map(block => (

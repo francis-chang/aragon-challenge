@@ -7,14 +7,14 @@ const BlockInformation = ({ block }) => {
             <BlockInformationLine>Hash: {block.hash}</BlockInformationLine>
             <BlockInformationLine>Miner: {block.miner}</BlockInformationLine>
             <BlockInformationLine>
-                difficulty: {block.difficulty}
+                Difficulty: {block.difficulty}
             </BlockInformationLine>
             <BlockInformationLine>size: {block.size}</BlockInformationLine>
             <BlockInformationLine>
-                gasLimit: {block.gasLimit}
+                Gas Limit: {block.gasLimit}
             </BlockInformationLine>
             <BlockInformationLine>
-                gasUsed : {block.gasUsed}
+                Gas Used : {block.gasUsed}
             </BlockInformationLine>
         </BlockInformationContainer>
     );

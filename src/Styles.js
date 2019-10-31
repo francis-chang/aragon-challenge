@@ -48,7 +48,7 @@ const BlockNumberContainer = styled.div`
     padding: 1rem;
     background-color: #313638;
     border-radius: 4px;
-    color: #f9d8b9;
+    color: #ffc266;
     font-family: 'Merriweather Sans', sans-serif;
     width: 150px;
     text-align: center;
@@ -59,6 +59,7 @@ const BlockNumberContainer = styled.div`
 const BlockNumberTitle = styled.div`
     font-size: 1rem;
     font-weight: 700;
+    color: #e8e9eb;
 `;
 
 const ToggleButton = styled.button`
@@ -105,6 +106,18 @@ const BlockInformationLine = styled.div`
     padding: 0.5rem;
     font-size: 1.3rem;
     font-weight: 700;
+
+    @media only screen and (max-width: 1210px) {
+        font-size: 1.2rem;
+    }
+    @media only screen and (max-width: 1130px) {
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+    @media only screen and (max-width: 900px) {
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
 `;
 
 const TxInformationContainer = styled.div`
@@ -119,11 +132,48 @@ const TxInformationLine = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 70px;
+    margin-bottom: 0.3rem;
+
+    @media only screen and (max-width: 1330px) {
+        font-size: 1.4rem;
+    }
+    @media only screen and (max-width: 1270px) {
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+    @media only screen and (max-width: 1060px) {
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
 `;
 
 const TxInformationToFrom = styled.div`
     display: flex;
+    height: 65px;
     flex-direction: column;
+    justify-content: center;
+`;
+
+const TxInformationValue = styled.div`
+    background-color: #e8e9eb;
+    color: #313e50;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    @media only screen and (max-width: 1330px) {
+        font-size: 1.7rem;
+    }
+    @media only screen and (max-width: 1270px) {
+        font-size: 1.3rem;
+    }
+    @media only screen and (max-width: 1110px) {
+        font-size: 1.1rem;
+    }
+    @media only screen and (max-width: 900px) {
+        font-size: 0.9rem;
+    }
 `;
 
 export {
@@ -142,4 +192,5 @@ export {
     TxInformationContainer,
     TxInformationLine,
     TxInformationToFrom,
+    TxInformationValue,
 };

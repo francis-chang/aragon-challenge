@@ -1,26 +1,33 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
     TxInformationContainer,
     TxInformationLine,
     TxInformationToFrom,
+    TxInformationValue,
 } from './Styles';
 
 const TxInformation = ({ txs }) => {
-    useEffect(() => {
-        console.log(txs);
-    }, []);
-
     return (
         <TxInformationContainer>
-            {txs.length === 0 && <div>Loading...</div>}
+            {txs.length === 0 && (
+                <div style={{ width: '100%', textAlign: 'center' }}>
+                    Loading...
+                </div>
+            )}
             {txs.map(tx => (
-                <TxInformationLine>
+                <TxInformationLine key={tx.hash}>
                     <TxInformationToFrom>
-                        <div>from:{tx.from}</div>
+                        <div>from: {tx.from}</div>
 
-                        <div>to: {tx.to}</div>
+                        <div>
+                            to: {'  '}
+                            {tx.to}
+                        </div>
                     </TxInformationToFrom>
-                    <div>value: {tx.value}</div>
+                    <TxInformationValue>
+                        {window.web3.utils.fromWei(tx.value).substring(0, 10)}{' '}
+                        ETH
+                    </TxInformationValue>
                 </TxInformationLine>
             ))}
         </TxInformationContainer>
