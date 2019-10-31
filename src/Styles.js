@@ -63,7 +63,7 @@ const BlockNumberTitle = styled.div`
 
 const ToggleButton = styled.button`
     position: absolute;
-    bottom: 0.5rem;
+    bottom: 0;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -75,7 +75,7 @@ const ToggleButton = styled.button`
     text-align: center;
     outline: none;
     font-size: 1.2rem;
-    height: 30px;
+    height: 46px;
     cursor: pointer;
     display: flex;
     justify-content: center;

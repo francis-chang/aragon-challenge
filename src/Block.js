@@ -38,9 +38,9 @@ const Block = ({ block }) => {
         padding: '0.5rem 1rem',
         fontSize: '1.5rem',
         margin: '0 auto',
-        marginTop: blockToggle ? '-270px' : '0px',
+
         backgroundColor: '#313e50',
-        height: '300px',
+        height: blockToggle ? '300px' : '30px',
         display: 'flex',
         alignItems: 'center',
         overflow: 'hidden',
