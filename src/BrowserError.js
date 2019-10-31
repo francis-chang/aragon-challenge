@@ -7,9 +7,10 @@ const Container = styled.div`
     width: 100%;
     text-align: center;
     font-size: 1.5rem;
+    font-weight: 700;
 `;
 const Link = styled.a`
-    color: #f1bf98;
+    color: #ed892c;
 
     &:hover {
     }

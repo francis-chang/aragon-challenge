@@ -6,6 +6,10 @@ const Global = createGlobalStyle`
         background-color: #e8e9eb;
         color: #313638;
     }
+
+    button::-moz-focus-inner {
+        border: 0;
+    }
 `;
 
 const Container = styled.div`
@@ -19,7 +23,7 @@ const BlockContainer = styled.div`
 
 const BlockTitle = styled.div`
     width: 100%;
-    padding: 1rem 0rem;
+    padding: 1rem;
     font-size: 1.5rem;
     margin: 0 auto;
     border-bottom: 3px solid #3c3f44;
@@ -31,27 +35,54 @@ const BlockTitle = styled.div`
 `;
 
 const BlockNumber = styled.div`
-    padding: 1rem 1.5rem;
+    font-weight: 700;
+    font-size: 1.8rem;
+`;
+
+const BlockNumberContainer = styled.div`
+    padding: 1rem;
     background-color: #313638;
     border-radius: 4px;
     color: #f9d8b9;
     font-family: 'Merriweather Sans', sans-serif;
-    font-weight: 700;
-    font-size: 28px;
-    width: 130px;
+    width: 150px;
     text-align: center;
-`;
-
-const LeftTitleContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    height: 50px;
 `;
 
-const HashContainer = styled.div`
-    font-size: 1.3rem;
+const BlockNumberTitle = styled.div`
+    font-size: 1rem;
+    font-weight: 700;
+`;
+
+const ToggleButton = styled.button`
+    position: absolute;
+    bottom: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 300px;
+    background-color: ${props => props.color};
+    border: none;
+    color: #e8e9eb;
+    text-align: center;
+    outline: none;
+    font-size: 1.2rem;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition-duration: 300ms;
+    &:hover .fa-icon {
+        color: #f9d8b9;
+    }
+`;
+
+const ToggleButtonSVG = styled.div`
+    font-size: 1.5rem;
+    padding: 0rem 1rem;
 `;
 
 export {
@@ -60,6 +91,8 @@ export {
     Container,
     Global,
     BlockNumber,
-    LeftTitleContainer,
-    HashContainer,
+    BlockNumberContainer,
+    BlockNumberTitle,
+    ToggleButton,
+    ToggleButtonSVG,
 };
