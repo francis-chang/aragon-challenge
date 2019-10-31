@@ -58,10 +58,6 @@ function App() {
         setBlocks(prevState => [...prevState, block]);
     };
 
-    useEffect(() => {
-        console.log(blocks);
-    });
-
     return (
         <div>
             <Global />

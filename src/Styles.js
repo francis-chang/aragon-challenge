@@ -19,10 +19,12 @@ const Container = styled.div`
 
 const BlockContainer = styled.div`
     margin-bottom: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
 `;
 
 const BlockTitle = styled.div`
-    width: 100%;
+    width: 90%;
     padding: 1rem;
     font-size: 1.5rem;
     margin: 0 auto;

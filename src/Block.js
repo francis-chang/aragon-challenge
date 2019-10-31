@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
@@ -16,6 +16,19 @@ import {
 const Block = ({ block }) => {
     const [blockToggle, setBlockToggle] = useState(false);
     const [txToggle, setTxToggle] = useState(false);
+    const [time, setTime] = useState(
+        Math.floor(Date.now() / 1000 - block.timestamp)
+    );
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTime(time + 3);
+        }, 3000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    });
 
     const blockInfo = useSpring({
         position: 'relative',
@@ -48,7 +61,7 @@ const Block = ({ block }) => {
                     <BlockNumber>{block.number}</BlockNumber>
                 </BlockNumberContainer>
 
-                <div>{block.timestamp}</div>
+                <div>{time} seconds ago</div>
             </BlockTitle>
             <animated.div style={blockInfo}>
                 <ToggleButton
