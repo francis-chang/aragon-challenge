@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const Container = styled.div`
     box-sizing: border-box;
@@ -7,13 +7,13 @@ const Container = styled.div`
     width: 100%;
     text-align: center;
     font-size: 1.5rem;
-`
+`;
 const Link = styled.a`
     color: #f1bf98;
 
     &:hover {
     }
-`
+`;
 
 const BrowserError = () => {
     return (
@@ -29,7 +29,7 @@ const BrowserError = () => {
                 here
             </Link>
         </Container>
-    )
-}
+    );
+};
 
-export default BrowserError
+export default BrowserError;
