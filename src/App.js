@@ -31,6 +31,7 @@ function App() {
                 } catch (error) {
                     // User unable to access account
                     // Cannot find a way to reach this path
+                    // MetaMask will always give you a password prompt even if you entered it wrong multiple times
                     setMetaMaskAccess(false);
                 }
             } else {
@@ -55,6 +56,7 @@ function App() {
             );
         }
         txBatch.execute();
+        //since execute is not async, could there be a race condition?
         setBlocks(prevState => [...prevState, block]);
     };
 

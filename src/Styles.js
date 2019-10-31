@@ -24,6 +24,7 @@ const BlockContainer = styled.div`
 `;
 
 const BlockTitle = styled.div`
+    position: relative;
     width: 90%;
     padding: 1rem;
     font-size: 1.5rem;
@@ -34,6 +35,8 @@ const BlockTitle = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
+    z-index: 10;
 `;
 
 const BlockNumber = styled.div`
@@ -65,7 +68,7 @@ const ToggleButton = styled.button`
     margin-right: auto;
     left: 0;
     right: 0;
-    width: 300px;
+    width: 100%;
     background-color: ${props => props.color};
     border: none;
     color: #e8e9eb;
@@ -75,6 +78,7 @@ const ToggleButton = styled.button`
     height: 30px;
     cursor: pointer;
     display: flex;
+    justify-content: center;
     align-items: center;
     transition-duration: 300ms;
     &:hover .fa-icon {
@@ -87,6 +91,15 @@ const ToggleButtonSVG = styled.div`
     padding: 0rem 1rem;
 `;
 
+const Time = styled.div`
+    font-size: 1.6rem;
+    font-weight: 700;
+`;
+
+const BlockInformationContainer = styled.div`
+    color: #e8e9eb;
+`;
+
 export {
     BlockContainer,
     BlockTitle,
@@ -97,4 +110,6 @@ export {
     BlockNumberTitle,
     ToggleButton,
     ToggleButtonSVG,
+    Time,
+    BlockInformationContainer,
 };

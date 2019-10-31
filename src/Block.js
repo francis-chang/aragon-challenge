@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import BlockInformation from './BlockInformation';
 
 import {
     BlockTitle,
@@ -11,6 +12,7 @@ import {
     BlockNumberTitle,
     ToggleButton,
     ToggleButtonSVG,
+    Time,
 } from './Styles';
 
 const Block = ({ block }) => {
@@ -36,10 +38,13 @@ const Block = ({ block }) => {
         padding: '0.5rem 1rem',
         fontSize: '1.5rem',
         margin: '0 auto',
+        marginTop: blockToggle ? '-270px' : '0px',
         backgroundColor: '#313e50',
-        height: blockToggle ? '300px' : '30px',
+        height: '300px',
         display: 'flex',
         alignItems: 'center',
+        overflow: 'hidden',
+        zIndex: 1,
     });
     const txInfo = useSpring({
         position: 'relative',
@@ -61,9 +66,10 @@ const Block = ({ block }) => {
                     <BlockNumber>{block.number}</BlockNumber>
                 </BlockNumberContainer>
 
-                <div>{time} seconds ago</div>
+                <Time>{time} seconds ago</Time>
             </BlockTitle>
             <animated.div style={blockInfo}>
+                <BlockInformation block={block}></BlockInformation>
                 <ToggleButton
                     color="#313e50"
                     onClick={() => setBlockToggle(!blockToggle)}
@@ -71,10 +77,13 @@ const Block = ({ block }) => {
                     <ToggleButtonSVG>
                         <FontAwesomeIcon
                             className="fa-icon"
-                            icon={faChevronDown}
+                            icon={blockToggle ? faChevronUp : faChevronDown}
                         />
                     </ToggleButtonSVG>
-                    View Block Information
+
+                    {blockToggle
+                        ? 'Close Block Information'
+                        : 'View Block Information'}
                 </ToggleButton>
             </animated.div>
             <animated.div style={txInfo}>
@@ -85,10 +94,10 @@ const Block = ({ block }) => {
                     <ToggleButtonSVG>
                         <FontAwesomeIcon
                             className="fa-icon"
-                            icon={faChevronDown}
+                            icon={txToggle ? faChevronUp : faChevronDown}
                         />
                     </ToggleButtonSVG>
-                    View Transactions
+                    {txToggle ? 'Close Transactions' : 'View Transactions'}
                 </ToggleButton>
             </animated.div>
         </BlockContainer>
